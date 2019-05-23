@@ -27,6 +27,11 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 import app from './App.vue'
 
+Vue.filter('dataFormat',(data)=>{
+return data.toLocaleString();
+
+})
+
 import router from './router.js'
 
 var vm = new Vue({
