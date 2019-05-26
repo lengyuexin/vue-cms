@@ -15,13 +15,17 @@ import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 
 
+
+
+
 // 导入全部 Mint-UI 中的组件   
-import {Header,Swipe,SwipeItem} from 'mint-ui'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
 
+Vue.use(MintUI);
+
+import 'mint-ui/lib/style.css'
 
 
 

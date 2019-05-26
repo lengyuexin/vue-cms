@@ -8,14 +8,14 @@
         <div class="mui-card">
             <div class="mui-card-content m">
                 <div class="mui-card-content-inner">
-                    <comments> </comments>
+                    <joke> </joke>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-import comments from '../c_subComponents/Comments.vue'
+import joke from '../c_subComponents/Joke.vue'
 
 export default {
     data() {
@@ -42,7 +42,7 @@ export default {
         }
     },
     components: {
-        comments
+        joke
     }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
     <div>
-       <div v-text="jock" class="myfont"></div>
+        <h4>开心一刻</h4>
+       <div v-text="joke" class="myfont"></div>
        <div class="mui-btn mui-btn-primary" @click="change">换个笑话</div>
     </div>
 </template>
@@ -8,7 +9,7 @@
 export default {
     data() {
         return {
-            jock: ""
+            joke: ""
         }
     },
     created() {
@@ -17,10 +18,10 @@ export default {
     methods: {
         show() {
 
-            let url = "../../../src/lib/jock.json";
+            let url = "../../../src/lib/joke.json";
             this.$http.get(url).then((data) => {
                 let idx = parseInt(Math.random() * 50);
-                this.jock = data.body.jockList[idx].content;
+                this.joke = data.body.jokeList[idx].content;
             }).catch(() => {})
         },
         change(){
@@ -30,11 +31,16 @@ export default {
 }
 </script>
 <style scoped>
+
 .mui-btn.mui-btn-primary{
      margin-top:26px !important;
 }
 .myfont{
     font-size:18px;
-    color:#000;
+    color:#aaa;
+
+}
+h4{
+    margin:-40px 0 24px 0;
 }
 </style>

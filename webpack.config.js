@@ -3,6 +3,7 @@ var path = require('path')
 // 在内存中，根据指定的模板页面，生成一份内存中的首页，同时自动把打包好的bundle注入到页面底部
 // 如果要配置插件，需要在导出的对象中，挂载一个 plugins 节点
 var htmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -20,7 +21,8 @@ module.exports = {
       filename: 'index.html', // 设置生成的内存页面的名称,
       
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+	new CleanWebpackPlugin()
   ],
   module: { // 配置所有第三方loader 模块的
     rules: [ // 第三方模块的匹配规则

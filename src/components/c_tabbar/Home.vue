@@ -5,44 +5,51 @@
                 <img :src="item.src" alt="">
             </mt-swipe-item>
         </mt-swipe>
-        <ul class="mui-table-view mui-grid-view mui-grid-9" >
+        <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newsList">
-                    <img src="../../images/menu1.png" alt="" >
+                    <img src="../../images/menu1.png" alt="">
                     <div class="mui-media-body">剧毒鸡汤</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
-                    <img src="../../images/menu2.png" alt="" >
+                <router-link to="/home/photoList">
+                    <img src="../../images/menu2.png" alt="">
                     <div class="mui-media-body">图片分享</div>
-                </a>
+                </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
-                    <img src="../../images/menu3.png" alt="" >
+                <router-link to="/home/goodsList">
+                    <img src="../../images/menu3.png" alt="">
                     <div class="mui-media-body">商品购买</div>
-                </a>
+                </router-link>
+            </li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/musicList">
+                    <img src="../../images/menu4.png" alt="">
+                    <div class="mui-media-body">网易音乐</div>
+                </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#">
-                    <img src="../../images/menu4.png" alt="" >
-                    <div class="mui-media-body">留言反馈</div>
-                </a>
-            </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
-                    <img src="../../images/menu5.png" alt="" >
+                    <img src="../../images/menu5.png" alt="">
                     <div class="mui-media-body">视频专区</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#">
-                    <img src="../../images/menu6.png" alt="" >
+                    <img src="../../images/menu6.png" alt="">
                     <div class="mui-media-body">联系我们</div>
                 </a>
             </li>
         </ul>
+     
+        <div class="mui-card">
+            <div class="mui-card-content">
+            	<center><h4>每日一句</h4></center>
+                <div class="mui-card-content-inner msg" v-html="msg"> </div>
+            </div>
+        </div>
     </div>
 </template>
 <script type="text/javascript">
@@ -50,17 +57,29 @@ export default {
 
     data() {
         return {
-            list: []
+            list: [],
+            msg: ""
         }
     },
     created() {
         this.show();
+        this.initContent();
     },
     methods: {
         show() {
-            this.$http.get('../../src/lib/pic.json').then((result) => {
-                this.list = result.body.list.slice(5, 10);
-                //console.log(result)
+            this.$http.get('../../src/lib/slide.json').then((result) => {
+
+                this.list = result.body.list.slice(14, 19);
+
+            }).catch(() => {})
+
+
+        },
+        initContent() {
+            this.$http.get('../../src/lib/article.json').then((result) => {
+
+            	let idx=parseInt(Math.random()*40)+1
+                this.msg = result.body.list[idx].msg;
 
             }).catch(() => {})
 
@@ -80,17 +99,34 @@ export default {
     width: 100%;
 
 }
+
 .mui-grid-view.mui-grid-9 {
-	background-color: #fff;
-	border:none;
-}
-.mui-grid-view.mui-grid-9 .mui-table-view-cell{
-	border:none;
-}
-.mui-grid-view.mui-grid-9 img{
-
-	widows: 60px;
-	height: 60px;
+    background-color: #fff;
+    border: none;
 }
 
+.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+    border: none;
+}
+
+.mui-grid-view.mui-grid-9 img {
+
+    widows: 60px;
+    height: 60px;
+}
+
+.mui-card {
+    margin-top: 30px;
+    box-shadow: 0 0 6px #333;
+    background-color: #2cc95e;
+   
+}
+.mui-card-content-inner.msg{
+	padding:5px;
+	font-size:18px;
+	color:#fff;
+	line-height:24px;
+	text-align: center;
+
+}
 </style>

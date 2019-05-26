@@ -1,0 +1,13 @@
+article.json --首页下方每日一句
+
+category.json --首页>图片分享
+
+joke.json    --公共组件数据-笑话
+
+music.json  --自定义的网易云音乐接口
+
+slide.json  --首页轮播图
+
+text.json  --自定义的首页毒鸡汤
+
+goods.json ---封装的商品数据列表，来自京东
