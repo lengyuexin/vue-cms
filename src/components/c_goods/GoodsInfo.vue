@@ -26,10 +26,8 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
-div{
-	/*margin-top:10px;*/
-}
+<style lang="less" scoped>
+
 div header{
 	background-color: #2ecc71;
 }

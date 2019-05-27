@@ -1,10 +1,12 @@
 <template>
     <div>
+      <!--   轮播图 -->
         <mt-swipe :auto="4000">
             <mt-swipe-item v-for="item in list" :key="item.id">
                 <img :src="item.src" alt="">
             </mt-swipe-item>
         </mt-swipe>
+       <!--  九宫格导航 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newsList">
@@ -43,10 +45,12 @@
                 </a>
             </li>
         </ul>
-     
+       <!--  每日一句卡片 -->
         <div class="mui-card">
             <div class="mui-card-content">
-            	<center><h4>每日一句</h4></center>
+                <center>
+                    <h4>每日一句</h4>
+                </center>
                 <div class="mui-card-content-inner msg" v-html="msg"> </div>
             </div>
         </div>
@@ -57,8 +61,8 @@ export default {
 
     data() {
         return {
-            list: [],
-            msg: ""
+            list: [], //轮播图列表
+            msg: "" //每日一句
         }
     },
     created() {
@@ -66,67 +70,58 @@ export default {
         this.initContent();
     },
     methods: {
+        //获取--轮播图列表
         show() {
-            this.$http.get('../../src/lib/slide.json').then((result) => {
-
+            this.$http.get("../../src/lib/slide.json").then((result) => {
                 this.list = result.body.list.slice(14, 19);
-
             }).catch(() => {})
-
 
         },
+        //获取--每日一句
         initContent() {
             this.$http.get('../../src/lib/article.json').then((result) => {
-
-            	let idx=parseInt(Math.random()*40)+1
+                let idx = parseInt(Math.random() * 40) + 1
                 this.msg = result.body.list[idx].msg;
-
             }).catch(() => {})
-
-
         }
     }
 
 }
 </script>
-<style lang="css" scoped>
+<style lang="less" scoped>
 .mint-swipe {
     height: 200px;
-}
 
-.mint-swipe .mint-swipe-item img {
-    display: block;
-    width: 100%;
+    .mint-swipe-item img {
+        display: block;
+        width: 100%;
 
+    }
 }
 
 .mui-grid-view.mui-grid-9 {
     background-color: #fff;
     border: none;
-}
 
-.mui-grid-view.mui-grid-9 .mui-table-view-cell {
-    border: none;
-}
-
-.mui-grid-view.mui-grid-9 img {
-
-    widows: 60px;
-    height: 60px;
+    .mui-table-view-cell {
+        border: none;
+    }
+    img {
+        widows: 60px;
+        height: 60px;
+    }
 }
 
 .mui-card {
     margin-top: 30px;
     box-shadow: 0 0 6px #333;
     background-color: #2cc95e;
-   
 }
-.mui-card-content-inner.msg{
-	padding:5px;
-	font-size:18px;
-	color:#fff;
-	line-height:24px;
-	text-align: center;
-
+.mui-card-content-inner.msg {
+    padding: 5px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 24px;
+    text-align: center;
 }
 </style>
