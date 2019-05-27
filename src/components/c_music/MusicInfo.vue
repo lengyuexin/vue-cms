@@ -88,7 +88,7 @@ export default {
         },
         //获取指定id歌词
         getLycByID() {
-            let url = "../../../src/lib/music.json";
+            let url = "https://lengyuexin.github.io/json/music.json";
             this.$http.get(url).then((data) => {
                 data.body.list.filter(item => {
                     if (this.id == item.id) {

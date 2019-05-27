@@ -19,7 +19,7 @@ export default {
     methods: {
         //获取笑话
         show() {
-            let url = "../../../src/lib/joke.json";
+            let url = "https://lengyuexin.github.io/json/joke.json";
             this.$http.get(url).then((data) => {
                 let idx = parseInt(Math.random() * 50);
                 this.joke = data.body.jokeList[idx].content;

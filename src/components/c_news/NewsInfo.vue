@@ -31,7 +31,7 @@ export default {
     methods: {
         //获取鸡汤详情
         show() {
-            this.$http.get("../../src/lib/text.json").then((result) => {
+            this.$http.get("https://lengyuexin.github.io/json/text.json").then((result) => {
                 result.body.list.filter((item, i) => {
                     if (this.id == item.id) {
                         this.msg = item.text

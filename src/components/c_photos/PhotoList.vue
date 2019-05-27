@@ -33,8 +33,9 @@ export default {
     },
     methods: {
         //获取全部图片列表
+        
         show() {
-            let url = "../../../src/lib/category.json";
+            let url = "https://lengyuexin.github.io/json/category.json";
             this.$http.get(url).then((data) => {
                 this.list = data.body.list;
             }).catch(() => {})
@@ -45,7 +46,7 @@ export default {
                 this.show();
             }
             this.list.length = 0
-            let url = "../../../src/lib/category.json";
+          let url = "https://lengyuexin.github.io/json/category.json";
             this.$http.get(url).then((data) => {
                 data.body.list.filter(item => {
                     if (item.type == type) {

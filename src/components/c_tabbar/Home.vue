@@ -6,41 +6,41 @@
                 <img :src="item.src" alt="">
             </mt-swipe-item>
         </mt-swipe>
-       <!--  九宫格导航 -->
+       <!--  6宫格导航 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/newsList">
-                    <img src="../../images/menu1.png" alt="">
+                    <img src="https://lengyuexin.github.io/pic/menu/menu1.png" alt="">
                     <div class="mui-media-body">剧毒鸡汤</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/photoList">
-                    <img src="../../images/menu2.png" alt="">
+                    <img src="https://lengyuexin.github.io/pic/menu/menu2.png" alt="">
                     <div class="mui-media-body">图片分享</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/goodsList">
-                    <img src="../../images/menu3.png" alt="">
+                    <img src="https://lengyuexin.github.io/pic/menu/menu3.png" alt="">
                     <div class="mui-media-body">商品购买</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/home/musicList">
-                    <img src="../../images/menu4.png" alt="">
+                    <img src="https://lengyuexin.github.io/pic/menu/menu4.png" alt="">
                     <div class="mui-media-body">网易音乐</div>
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#">
-                    <img src="../../images/menu5.png" alt="">
+                    <img src="https://lengyuexin.github.io/pic/menu/menu5.png" alt="">
                     <div class="mui-media-body">视频专区</div>
                 </a>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#">
-                    <img src="../../images/menu6.png" alt="">
+                    <img src="https://lengyuexin.github.io/pic/menu/menu6.png" alt="">
                     <div class="mui-media-body">联系我们</div>
                 </a>
             </li>
@@ -72,14 +72,14 @@ export default {
     methods: {
         //获取--轮播图列表
         show() {
-            this.$http.get("../../src/lib/slide.json").then((result) => {
+            this.$http.get("https://lengyuexin.github.io/json/slide.json").then((result) => {
                 this.list = result.body.list.slice(14, 19);
             }).catch(() => {})
 
         },
         //获取--每日一句
         initContent() {
-            this.$http.get('../../src/lib/article.json').then((result) => {
+            this.$http.get('https://lengyuexin.github.io/json/article.json').then((result) => {
                 let idx = parseInt(Math.random() * 40) + 1
                 this.msg = result.body.list[idx].msg;
             }).catch(() => {})

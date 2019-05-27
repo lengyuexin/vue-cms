@@ -39,7 +39,7 @@ export default {
         //显示指定分类的音乐
         renderByType(type) {
             this.list.length = 0
-            let url = "../../../src/lib/music.json";
+            let url = "https://lengyuexin.github.io/json/music.json";
             this.$http.get(url).then((data) => {
                 data.body.list.filter(item => {
                     if (type == item.type) {

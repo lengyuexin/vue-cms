@@ -30,7 +30,7 @@ export default {
     methods: {
         // 获取商品数据
         show(next) {
-            this.$http.get('../../src/lib/goods.json').then((result) => {
+            this.$http.get('https://lengyuexin.github.io/json/goods.json').then((result) => {
                 this.list = result.body.list.slice(0, next);
                 this.dataLength = result.body.list.length;
             }).catch(() => {})

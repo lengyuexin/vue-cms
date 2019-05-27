@@ -28,7 +28,7 @@ export default {
     //获取毒鸡汤列表
     methods: {
         show() {
-            this.$http.get("../../src/lib/text.json").then((result) => {
+            this.$http.get("https://lengyuexin.github.io/json/text.json").then((result) => {
                 this.list = result.body.list;
             }).catch(() => {})
         }
