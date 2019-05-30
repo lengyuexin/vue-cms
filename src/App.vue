@@ -1,7 +1,11 @@
 <template>
     <div class="container">
         <!-- 标题 -->
-        <mt-header fixed title="VUE-CMS"></mt-header>
+        <mt-header fixed title="VUE-CMS">
+            <span slot="left" @click="back" v-show="flag">
+                <mt-button icon="back">返回</mt-button>
+            </span>
+        </mt-header>
         <!-- 内容 -->
         <transition>
             <router-view></router-view>
@@ -12,21 +16,41 @@
                 <span class="mui-icon mui-icon-home"></span>
                 <span class="mui-tab-label">首页</span>
             </router-link>
-            <router-link class="mui-tab-item-me" to="/member">
-                <span class="mui-icon mui-icon-contact"></span>
-                <span class="mui-tab-label">会员</span>
-            </router-link>
             <router-link class="mui-tab-item-me" to="/shopcar">
-                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+                <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span id="badge" class="mui-badge">{{$store.getters.getAllCounts}}</span></span>
                 <span class="mui-tab-label">购物车</span>
-            </router-link>
-            <router-link class="mui-tab-item-me" to="/search">
-                <span class="mui-icon mui-icon-search"></span>
-                <span class="mui-tab-label">搜索</span>
             </router-link>
         </nav>
     </div>
 </template>
+<script type="text/javascript">
+export default {
+
+
+    data() {
+        return {
+            flag: false
+        }
+    },
+    created() {
+        this.flag = this.$route.path === "/home" ? false : true;
+    },
+    methods: {
+        back() {
+            this.$router.go(-1);
+        }
+    },
+    watch: {
+        "$route.path": function(newVal) {
+            if (newVal === "/home") {
+                this.flag = false;
+            } else {
+                this.flag = true;
+            }
+        }
+    }
+}
+</script>
 <style lang="less" scoped>
 .v-enter {
     opacity: 0;

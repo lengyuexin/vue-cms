@@ -33,16 +33,16 @@
                 </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+                <router-link to="/home/articleList">
                     <img src="https://lengyuexin.github.io/pic/menu/menu5.png" alt="">
-                    <div class="mui-media-body">视频专区</div>
-                </a>
+                    <div class="mui-media-body">古风短篇</div>
+               </router-link>
             </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <a href="#">
+              <router-link to="/home/study">
                     <img src="https://lengyuexin.github.io/pic/menu/menu6.png" alt="">
-                    <div class="mui-media-body">联系我们</div>
-                </a>
+                    <div class="mui-media-body">学习资源</div>
+               </router-link>
             </li>
         </ul>
        <!--  每日一句卡片 -->

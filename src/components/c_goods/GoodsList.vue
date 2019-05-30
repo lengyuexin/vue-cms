@@ -3,8 +3,7 @@
         <!--  商品列表 -->
         <div class="goods">
             <div class="goods-item" v-for="(item,i) in list" :key="i">
-                <router-link :to="'/home/goodsInfo/'+item.id"><img v-lazy="item.url"> </router-link>
-                <div class="info">
+                <router-link :to="'/home/goodsInfo/'+item.id"><img v-lazy="item.url"> </router-link> 
                     <h3 v-text='item.price'></h3>
                     <p> <span v-text="item.title"></span><span v-text="item.desc"></span></p>
                 </div>
