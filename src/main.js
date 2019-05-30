@@ -71,7 +71,11 @@ const store = new VueX.Store({
             localStorage.setItem('cartList', JSON.stringify(state.cartList))
         },
         clear(state) {
-            state.cartList.length = 0
+               state.cartList.forEach((item, i) => {
+             
+                    state.cartList.splice(i, state.cartList.length)
+               
+            })
             // 将删除完毕后的，最新的购物车数据，同步到 本地存储中
             localStorage.setItem('cartList', JSON.stringify(state.cartList))
            
